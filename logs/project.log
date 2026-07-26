@@ -1,2 +1,24 @@
 2026-07-25 21:15:46,969 | INFO | Cleaned Text: 'hello, world! this is a sample text.'
 2026-07-25 21:15:46,969 | INFO | Word Count: 7
+2026-07-26 22:45:23,585 | INFO | Cleaned Text: 'hello, world! this is a sample text for testing.'
+2026-07-26 22:45:23,585 | INFO | Word Count: 9
+2026-07-26 23:10:11,911 | INFO | Data loaded successfully: data/raw/sample_news.csv
+2026-07-26 23:10:11,911 | INFO | First few rows of the loaded data:
+2026-07-26 23:10:11,911 | INFO |    id                                title sentiment
+0   1        AI is transforming healthcare  Positive
+1   2  Stock market falls due to inflation  Negative
+2   3  New technology conference announced   Neutral
+3   4       Company reports record profits  Positive
+4   5          Heavy rains disrupt traffic  Negative
+2026-07-26 23:10:11,915 | INFO | Cleaned Text: 'hello, world! this is a sample text for testing.'
+2026-07-26 23:10:11,915 | INFO | Word Count: 9
+2026-07-26 23:11:44,806 | INFO | Data loaded successfully: data/raw/sample_news.csv
+2026-07-26 23:11:44,806 | INFO | First few rows of the loaded data:
+2026-07-26 23:11:44,806 | INFO |    id                                title sentiment
+0   1        AI is transforming healthcare  Positive
+1   2  Stock market falls due to inflation  Negative
+2   3  New technology conference announced   Neutral
+3   4       Company reports record profits  Positive
+4   5          Heavy rains disrupt traffic  Negative
+2026-07-26 23:11:44,818 | INFO | Cleaned Text: 'hello, world! this is a sample text for testing.'
+2026-07-26 23:11:44,818 | INFO | Word Count: 9
