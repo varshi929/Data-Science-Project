@@ -1,25 +1,36 @@
+from data.data_loader import load_csv as load_data
+from src.data.validate_data import validate_data
+from src.data.preprocess import preprocess_data
 from src.utils.logger import logger
-from src.utils.text_utils import clean_text, count_words
-from data.data_loader import load_csv
+from src.config.config import REQUIRED_COLUMNS, DATASET_PATH
+from src.features.feature_engineering import encode_labels, vectorize_text, split_dataset
 
 def main():
-    # Load the data
-    df = load_csv('data/raw/sample_news.csv')
-    
-    # Display the first few rows of the DataFrame
-    logger.info("First few rows of the loaded data:")
-    logger.info(df.head())
-    print(df.head())  # Print to console for immediate feedback
 
-    sample_text = "   Hello, World! This is a sample text for testing.   "
+    # Load dataset
+    logger.info("Loading dataset...")
+    df = load_data(DATASET_PATH)
+
+    # Validate dataset
+    logger.info("Validating dataset...")
+
+    if not validate_data(df):
+        logger.error("Data validation failed.")
+        return
+
+    # Preprocess dataset
+    logger.info("Preprocessing dataset...")
+    df = preprocess_data(df)
+
+    # Display processed data
+    logger.info("Displaying processed dataset.")
+    print(df.head())
     
-    # Clean the text
-    cleaned_text = clean_text(sample_text)
-    logger.info(f"Cleaned Text: '{cleaned_text}'")
-    
-    # Count words in the cleaned text
-    word_count = count_words(cleaned_text)
-    logger.info(f"Word Count: {word_count}")
+    y, label_encoder = encode_labels(df)
+
+    X, tfidf_vectorizer = vectorize_text(df)
+
+    X_train, X_test, y_train, y_test = split_dataset(X, y)
 
 if __name__ == "__main__":
     main()
